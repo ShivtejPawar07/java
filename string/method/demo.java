@@ -1,55 +1,15 @@
 class demo
-{    
-    
-
-    public static void main(String [] args)
-    {   System.out.println("1");
-        String s1=new String();
+{
+  public static void main(String[] args) {
+    String s1=new String();
         s1="shivtej";
         System.out.println(s1);
         System.out.println();
 
-        System.out.println("2");
         String s2=new String("shivtej");
-        System.out.println("s2 "+s2);
-        String s3=new String(s2);
-        System.out.println("s3 "+s3);
-        System.out.println();
+        System.out.println(s2);
 
-        System.out.println("3");
-        StringBuffer Sb1=new StringBuffer("shivtej");
-        String s4=new String(Sb1);
-        System.out.println("s4 "+s4);
-        System.out.println();
-
-        System.out.println("4");
-        StringBuilder sb2=new StringBuilder("shivtej");
-        String s5=new String(sb2);
-        System.out.println("s5 "+s5);
-
-        System.out.println("5");
-        char[] crr={'s','h','i','v','t','e','j'};
-        String s6=new String(crr);
-        System.out.println("s6 "+s6);
-
-        //slice
-        char[] crr2={'a','h','m','d','n','a','g','a','r'};
-        String s7=new String(crr2,4,4);
-        System.out.println(s7);
-
-        byte[] brr={65,66,67};
-        String s8=new String(brr);
-        System.out.println(s8);
-        
-        
-        byte[] brr2={97,98,99,100,101,102,103,104};
-        String s9=new String(brr2, 3, 5);
-        System.out.println(s9);
-
-}
-}
-
-      /*  String st1="shivtej";
+String st1="shivtej";
         String st2=new String("shivtej");
         System.out.println(st1.hashCode());
         System.out.println(st2.hashCode());
@@ -94,11 +54,23 @@ class demo
        System.out.println(s1.compareToIgnoreCase(s2));
        System.out.println(st1.compareToIgnoreCase(st2));
 
- */
+       System.out.println(s1.isEmpty());
+       System.out.println(s1.startsWith("s"));
+       System.out.println(s1.startsWith("v"));
 
-    
+       System.out.println(s1.endsWith("s"));
+       System.out.println(s1.endsWith("j"));
+
+       String sn="      maha    rstra";
+       System.out.println(sn.trim());
+ 
+       System.out.println(sn.substring(7,15));
+
+      System.out.println(s1.replace(st2, sn));
+      System.out.println(s1.replace(s1,sn));
+
+     
 
 
-
-
-
+  }
+}
