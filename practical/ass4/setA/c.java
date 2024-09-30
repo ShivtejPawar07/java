@@ -1,35 +1,23 @@
+/*c) Accept the names of two files and copy the contents of the first to the second.
+First file having Book name and Author name in file. Second file having the contents
+of First file and also add the comment ‘end of file’ at the end. */
 import java.io.*;
-
-
 class demo {
     public static void main(String[] args) {
-     
-
-
-        try {
-            // Open the first file for reading
+        try {       
             FileInputStream fin = new FileInputStream(args[0]);
-            // Open the second file for writing (or creating if it doesn't exist)
             FileOutputStream fout = new FileOutputStream(args[1]);
 
             int ch;
-
-            // Read content from the first file and write it to the second file
             while ((ch = fin.read()) != -1) {
                 fout.write(ch);
             }
-
-            // Add the "end of file" comment to the second file
             String Comment = "\nend of file";
             fout.write(Comment.getBytes());
-
-            // Close both file streams
             fin.close();
-            fout.close();
+            fout.close();  
 
-           
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }

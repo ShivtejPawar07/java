@@ -1,5 +1,9 @@
-
-import java.util.Scanner;
+/*a) Define a class patient (patient_name, patient_age,
+patient_oxy_level,patient_HRCT_report). Create an object of patient. Handle
+appropriate exception while patient oxygen level less than 95% and HRCT scan report
+greater than 10, then throw user defined Exception “Patient is Covid Positive(+) and
+Need to Hospitalized” otherwise display its information. */
+import java.util.*;
 class CovidException extends Exception{
     String msg;
     CovidException(String msg)
@@ -17,7 +21,7 @@ class Patient {
 float oxyLevel;
     int hrctReport;
 
-    // Constructor
+   
     public Patient(String name, int age, float oxyLevel, int hrctReport) {
         this.name = name;
         this.age = age;

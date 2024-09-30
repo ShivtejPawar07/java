@@ -1,94 +1,47 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
+class demo {
+    static public void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        try{
+        String dirname ="D:/java/practical/xyz";
 
-class Book {
-    int bookId;
-    String bookName;
-    double bookPrice;
-    int bookQty;
+        File f1 = new File(dirname); 
+       
+        if (f1.isDirectory()) 
+        {
+            int cnt=0;
+            String[] s = f1.list();     
+            for (int i = 0; i < s.length; i++) 
+            {
+                File f = new File(dirname + "/" + s[i]);       
+                if (f.isDirectory())
+                 {
+                    System.out.println(s[i] + " is a directory"); 
+                } 
+                if (!f.isDirectory())
+                {
+                   System.out.println(s[i] + " is a file"); 
+               } 
+                System.out.println("enter 1 if you want delete file"+s[i]+"file");
+                int n=sc.nextInt();
 
-    public Book(int bookId, String bookName, double bookPrice, int bookQty) {
-        this.bookId = bookId;
-        this.bookName = bookName;
-        this.bookPrice = bookPrice;
-        this.bookQty = bookQty;
-    }
-
-    @Override
-    public String toString() {
-        return "Book ID: " + bookId + ", Name: " + bookName + ", Price: " + bookPrice + ", Quantity: " + bookQty;
-    }
-}
-class a {
-    private static final String FILE_NAME = "book.dat";
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Menu:");
-            System.out.println("1. Search for a specific book by name");
-            System.out.println("2. Display all books and total cost");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter book name to search: ");
-                    String name = scanner.nextLine();
-                    searchBookByName(name);
-                    break;
-                case 2:
-                    displayAllBooksAndTotalCost();
-                    break;
-                case 3:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-    }
-
-    private static void searchBookByName(String name) {
-        try (RandomAccessFile file = new RandomAccessFile(FILE_NAME, "r")) {
-            boolean found = false;
-            while (file.getFilePointer() < file.length()) {
-                Book book = readBook(file);
-                if (book.bookName.equalsIgnoreCase(name)) {
-                    System.out.println(book);
-                    found = true;
-                    break;
+                if(n==1)
+                {
+                    if (s[i].endsWith(".txt")) 
+                    {
+                        f.delete();
+                        cnt++;
+                        System.out.println("File is deleted");
+                    }
                 }
             }
-            if (!found) {
-                System.out.println("Book not found.");
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
-        }
+            System.out.println("Total number of .txt files deleted: " + cnt);
+        } 
     }
-
-    private static void displayAllBooksAndTotalCost() {
-        try (RandomAccessFile file = new RandomAccessFile(FILE_NAME, "r")) {
-            double totalCost = 0;
-            while (file.getFilePointer() < file.length()) {
-                Book book = readBook(file);
-                System.out.println(book);
-                totalCost += book.bookPrice * book.bookQty;
-            }
-            System.out.println("Total cost of all books: " + totalCost);
-        } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+        catch(Exception e)
+        {
+            System.out.println(e);
         }
-    }
-
-    private static Book readBook(RandomAccessFile file) throws IOException {
-        int bookId = file.readInt();
-        String bookName = file.readUTF();
-        double bookPrice = file.readDouble();
-        int bookQty = file.readInt();
-        return new Book(bookId, bookName, bookPrice, bookQty);
     }
 }
