@@ -10,7 +10,7 @@ public class Comp {
         this.str2 = str2;
     }
 
-    public int compare() {
+    public void compare() {
         int result = str1.compareTo(str2);
         if (result == 0) {
             System.out.println("The strings are equal.");
@@ -19,6 +19,6 @@ public class Comp {
         } else {
             System.out.println("The first string is greater than the second string.");
         }
-        return result;
+        
     }
 }

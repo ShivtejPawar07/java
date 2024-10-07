@@ -1,198 +1,51 @@
-// import java.io.*;
-// class Cricket{
-//    String name;
-//    int inning;
-//    int tofnotout;
-//    int totalruns;
-//    float batavg;
-//    public Cricket(){
-//          name=null;
-//          inning=0;
-//          tofnotout=0;
-//          totalruns=0;
-//          batavg=0;
-//      }
-//    public void get()throws IOException{
-//          BufferedReader br=new BufferedReader(new InputstreamReader(System.in));
-//          System.out.println("Enter the Name of Batsman: ");
-//          name=br.readLine();
-//          System.out.println("Enter the Number of Innings: ");
-//          inning=Integer.parseln(br.readLine());
-//          System.out.println("Enter the Number of Times not out: ");
-//          tofnotout=Integer.parseln(br.readLine());
-//          System.out.println("Enter the Number of Total Runs: ");
-//          totalruns=Integer.parseln(br.readLine());
-//       }
-//          public void put(){
-//           System.out.println("Name: "+name);
-//            System.out.println("Number of Innings: "+inning);
-//            System.out.println("Number of Times notout: "+notout);
-//             System.out.println("Number of Total Runs: "+totalruns);
-//              System.out.println("Bat Average: "+batavg);
-//       }
-//        static void avg(int n, Cricket c[]){
-//           try{
-//               for(int i=0; i<n; i++){
-//               c[i].batavg=c[i].tatalruns/c[i][i].inning;
-//               }
-//          }catch(ArithematicException e){
-//              System.out.println("Invalid Arg");
-//            }
-//         }
-//         static void sort(int n, Cricket c[]){
-//         String temp1;
-//         int temp2;
-//         int temp3;
-//         int temp4;
-//         float temp5;
-//         for(int i=0; i<n; i++){
-//           for(int j=i+1; j<n; j++){
-//             if(c[i].batavg < c[j].batavg){
-//             temp1=c[i].name;
-//             c[i].name=c[j].name;
-//             c[j].name=temp1;
-            
-//             temp2=c[i].inning;
-//             c[i].inning=c[j].innig;
-//             c[j].inning=temp2;
-            
-//             temp3=c[i].tofnotout;
-//             c[i].tofnotout=c[j].tofnotout;
-//             c[j].tofnotout=temp3;
-            
-//             temp4=c[i].totalruns;
-//             c[i].totalruns=c[j].totalruns;
-//             c[j].totalruns=temp4;
-            
-//             temp5=c[i].batavg;
-//             c[i].batavg=c[j].batavg;
-//             c[j].batavg=temp5;
-//          }
-//        }
-//      }
-//    }  
-//  }
-// class cricket{
-//            public static void main (String arg [])throws IOException{
-//            BufferedReader br=new BufferedReader(new InputstreamReader(System.in));  
-//            System.out.println("Enter the limit: ");
-         
-//            int n=Intger.parseln(br.readLine());
-//            Cricket c[]=new Cricket[n];
-//            for(int i=0; i<n; i++){
-//            c[i]=new Cricket();
-//            c[i].get();
-//             }
-//          Cricket.avg(n.c);
-//          Cricket.sort(n.c);
-//           for(int i=0; i<n; i++){
-//           c[i].put();
-//           }
-//  }
-// }
-
-import java.io.*;
-
-class Cricket {
+class Employee {
+    int id;
     String name;
-    int inning;
-    int tofnotout;
-    int totalruns;
-    float batavg;
+    String deptName;
+    float salary;
+    
+    // Static variable to keep track of object count
+    static int count = 0;
 
-    public Cricket() {
-        name = null;
-        inning = 0;
-        tofnotout = 0;
-        totalruns = 0;
-        batavg = 0;
+    // Default constructor
+    Employee() {
+        //count++;
     }
 
-    public void get() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter the Name of Batsman: ");
-        name = br.readLine();
-        System.out.println("Enter the Number of Innings: ");
-        inning = Integer.parseInt(br.readLine());
-        System.out.println("Enter the Number of Times not out: ");
-        tofnotout = Integer.parseInt(br.readLine());
-        System.out.println("Enter the Number of Total Runs: ");
-        totalruns = Integer.parseInt(br.readLine());
+    // Parameterized constructor using 'this' keyword
+    Employee(int id, String name, String deptName, float salary) {
+        this.id = id;
+        this.name = name;
+        this.deptName = deptName;
+        this.salary = salary;
+        count++;  // Increment count when object is created
     }
 
-    public void put() {
-        System.out.println("Name: " + name);
-        System.out.println("Number of Innings: " + inning);
-        System.out.println("Number of Times not out: " + tofnotout);
-        System.out.println("Number of Total Runs: " + totalruns);
-        System.out.println("Batting Average: " + batavg);
+    // Method to display employee details
+    void display() {
+        System.out.println("ID: " + id + ", Name: " + name + ", Department: " + deptName + ", Salary: " + salary);
     }
 
-    static void avg(int n, Cricket[] c) {
-        try {
-            for (int i = 0; i < n; i++) {
-                if (c[i].inning - c[i].tofnotout != 0) {
-                    c[i].batavg = (float) c[i].totalruns / (c[i].inning - c[i].tofnotout);
-                } else {
-                    c[i].batavg = 0;
-                }
-            }
-        } catch (ArithmeticException e) {
-            System.out.println("Invalid Argument: " + e.getMessage());
-        }
-    }
-
-    static void sort(int n, Cricket[] c) {
-        String temp1;
-        int temp2;
-        int temp3;
-        int temp4;
-        float temp5;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (c[i].batavg < c[j].batavg) {
-                    temp1 = c[i].name;
-                    c[i].name = c[j].name;
-                    c[j].name = temp1;
-
-                    temp2 = c[i].inning;
-                    c[i].inning = c[j].inning;
-                    c[j].inning = temp2;
-
-                    temp3 = c[i].tofnotout;
-                    c[i].tofnotout = c[j].tofnotout;
-                    c[j].tofnotout = temp3;
-
-                    temp4 = c[i].totalruns;
-                    c[i].totalruns = c[j].totalruns;
-                    c[j].totalruns = temp4;
-
-                    temp5 = c[i].batavg;
-                    c[i].batavg = c[j].batavg;
-                    c[j].batavg = temp5;
-                }
-            }
-        }
+    // Static method to display the count of objects created
+    static void displayCount() {
+        System.out.println("Number of Employee objects created: " + count);
     }
 }
 
-class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter the limit: ");
+ class demo {
+    public static void main(String[] args) {
+        // Creating objects using the parameterized constructor
+        Employee emp1 = new Employee(101, "shivtej", "bcs", 5000000);
+        emp1.display();
+        emp1.displayCount();
 
-        int n = Integer.parseInt(br.readLine());
-        Cricket[] c = new Cricket[n];
-        for (int i = 0; i < n; i++) {
-            c[i] = new Cricket();
-            c[i].get();
-        }
-        Cricket.avg(n, c);
-        Cricket.sort(n, c);
-        for (int i = 0; i < n; i++) {
-            c[i].put();
-        }
+        Employee emp2 = new Employee(102, "shiv", "bca", 60000);
+        emp2.display();
+        Employee.displayCount();
+
+        Employee emp3 = new Employee(103, "tej", "Engineering", 70000);
+        emp3.display();
+        Employee.displayCount();
     }
 }
-
 

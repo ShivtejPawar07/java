@@ -1,61 +1,39 @@
- import java.util.*;
- class student {
-    int rollno;
-    String name;
-    float per;
+/*c) Write a java program to accept 5 numbers using command line arguments sort and
+display them. */
+ class demo {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("how many student");
-        int n=sc.nextInt();
-        student s[]=new student[n];
-        for(int i=0;i<n;i++)
+      int a[]=new int[5];
+      
+      for(int i=0;i<args.length;i++)
+      {
+         a[i]=Integer.parseInt(args[i]);
+      }
+      System.out.println("array");
+      for(int i=0;i<args.length;i++)
+      {
+        System.out.println(a[i]);
+      }
+      int temp=0;
+      for(int i=0;i<args.length;i++)
+      {
+        for(int j=i+1;j<args.length;j++)
+      {
+        if(a[i]<a[j])
         {
-            s[i]=new student();
+          temp=a[i];
+          a[i]=a[j];
+          a[j]=temp;
         }
-        for(int i=0;i<n;i++)
-        {
-           System.out.println("enter student "+(i+1)+ " rollno");
-           int r=sc.nextInt();
-          
-          
-           System.out.println("enter student "+(i+1)+ " name");
-           sc.nextLine();
-           String na=sc.nextLine();
-           System.out.println("enter student "+(i+1)+ " per");
-           float p=sc.nextFloat();
-           s[i].rollno=r;
-           s[i].name=na;
-           s[i].per=p;
-        }
-        System.out.println("****student info****");
-        System.out.println("rollno\t name\t per\t");
-        for(int i=0;i<n;i++)
-        {
-           System.out.println(s[i].rollno+"\t"+s[i].name+"\t"+s[i].per);
-        }
+      }
+      }
+      System.out.println("sorted array");
+      for(int i=0;i<args.length;i++)
+      {
+        System.out.println(a[i]);
+      }
 
-        System.out.println("sorted array");
-        student.sortstudent(s);
-        for(int i=0;i<n;i++)
-        {
-           System.out.println(s[i].rollno+"\t"+s[i].name+"\t"+s[i].per);
-        }
-        
-    }  
-    static  void sortstudent(student s[])
-    {
-        for(int i=0;i<s.length;i++)
-        {
-            for(int j=i+1;j<s.length;j++)
-            {
-              if(s[i].per>s[j].per)
-              {
-                student temp=s[i];
-                s[i]=s[j];
-                s[j]=temp;
-              }
-              
-            }
-        }
+     
+
     }
+    
 }
