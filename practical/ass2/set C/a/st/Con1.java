@@ -10,9 +10,9 @@ public class Con1 {
         this.str2 = str2;
     }
 
-    public String concatenate() {
-        String str3 = str1 + str2;
-        System.out.println("Concatenating=> "+ str3 );
-        return str3;
+    public void display() {
+       
+        System.out.println("Concatenating=> "+ str1+str2 );
+       
     }
 }

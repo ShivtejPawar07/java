@@ -1,4 +1,3 @@
-
 package st;
 
 public class Comp {
@@ -10,15 +9,16 @@ public class Comp {
         this.str2 = str2;
     }
 
-    public void compare() {
-        int result = str1.compareTo(str2);
-        if (result == 0) {
+    public void display() {
+    
+        if (str1.equals(str2)) {
             System.out.println("The strings are equal.");
-        } else if (result < 0) {
+        } else if (str1.compareTo(str2)>0) {
             System.out.println("The first string is less than the second string.");
         } else {
             System.out.println("The first string is greater than the second string.");
         }
-        
-    }
+
+       }
 }
+

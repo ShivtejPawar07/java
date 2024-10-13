@@ -1,44 +1,26 @@
 import java.io.*;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+
 
 class demo {
 
     public static void main(String[] args) {
-        int[] numbers = new int[10];
-        Random random = new Random();
-
-        // Generating 10 random integers between 1 and 100
-        for (int i = 0; i < 10; i++) {
-            numbers[i] = random.nextInt(100) + 1;
-        }
-
-        // Writing numbers to file
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("number.txt"))) {
-            for (int num : numbers) {
-                bw.write(num + "\n");
-            }
-            System.out.println("Numbers written to file successfully.");
-        } catch (IOException e) {
-            System.out.println("Error writing to file: " + e.getMessage());
-        }
-
-        // Menu-driven program
         Scanner sc = new Scanner(System.in);
+        int []n=new int[10];
         while (true) {
             System.out.println("\nMenu:");
-            System.out.println("1. Display all numbers");
-            System.out.println("2. Perform sum of numbers");
+            System.out.println("1.Genrate to 10 random number");
+            System.out.println("2. Save num. to the file");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
 
             switch (choice) {
                 case 1:
-                    displayNumbersFromFile();
+                generateno(n);
                     break;
                 case 2:
-                    sumNumbersFromFile();
+                savenumbersfromfile(n);
                     break;
                 case 3:
                     System.out.println("Exiting...");
@@ -48,31 +30,29 @@ class demo {
             }
         }
     }
-
-    // Method to display numbers from the file
-    public static void displayNumbersFromFile() {
-        try (BufferedReader br = new BufferedReader(new FileReader("number.txt"))) {
-            String line;
-            System.out.println("Numbers in the file:");
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+    public static void generateno(int n[]){    
+            Random r = new Random();
+            for (int i = 0; i < 10; i++) {
+                n[i] =10+ r.nextInt(90) ;
+                System.out.println(n[i]+" ");
             }
-        } catch (IOException e) {
-            System.out.println("Error reading from file: " + e.getMessage());
+            System.out.println();
+    
+}
+
+   
+    public static void savenumbersfromfile(int []n) {
+        try (FileWriter fw = new FileWriter("number.txt")){
+           for(int num:n)
+           {
+              fw.write(num+"\n") ;  
+           }
+       
+            System.out.println("Numbers in the file:");
+            
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
-
-    // Method to sum numbers from the file
-    public static void sumNumbersFromFile() {
-        try (BufferedReader br = new BufferedReader(new FileReader("number.txt"))) {
-            String line;
-            int sum = 0;
-            while ((line = br.readLine()) != null) {
-                sum += Integer.parseInt(line);
-            }
-            System.out.println("Sum of numbers: " + sum);
-        } catch (IOException e) {
-            System.out.println("Error reading from file: " + e.getMessage());
- }
 }
-}
+   
