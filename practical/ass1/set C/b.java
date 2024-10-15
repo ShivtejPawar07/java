@@ -2,7 +2,7 @@ import java.util.*;
 class demo{
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.println("enter a num");
+        System.out.println("how many  a num");
         int n=sc.nextInt();
         int [][]a=new int [10][10];
 

@@ -19,9 +19,9 @@ class demo {
                  break;
             case 3:Aramstrong();
                  break;
-            // case 4:System.out.println("exit....");
-            // System.exit(0);
-            // break;
+            case 4:System.out.println("exit....");
+            System.exit(0);
+            break;
 
         
         }
