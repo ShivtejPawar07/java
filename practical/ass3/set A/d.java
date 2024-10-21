@@ -1,5 +1,6 @@
-import java.util.Scanner;
+/*d) Write a program to find the cube of given number using function interfac */
 
+import java.util.Scanner;
 interface num
  {
     public void print(int x);

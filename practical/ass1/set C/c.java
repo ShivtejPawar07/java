@@ -1,3 +1,4 @@
+/*Write a program to display the 1 to 15 tables*/
 import java.util.*;
 class demo{
     public static void main(String[] args) {

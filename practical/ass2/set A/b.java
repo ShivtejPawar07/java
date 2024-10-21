@@ -1,3 +1,7 @@
+/*Define Student class(roll_no, name, percentage) to create n objects of the Student class. Accept detailsfrom the user for each object. Define a static
+method “sortStudent” which sorts the array on the basis of percentage.
+ */
+
 import java.util.Scanner;
 
 class student{

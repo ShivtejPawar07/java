@@ -1,3 +1,7 @@
+/*b) Define a class CricketPlayer (name,no_of_innings,no_of_times_notout, totatruns,
+bat_avg). Create an array of n player objects .Calculate the batting average for each
+player using static method avg(). Define a static sort method which sorts the array on
+the basis of average. Display the player details in sorted order */
 import java.util.Scanner;
 
 class CricketPlayer {

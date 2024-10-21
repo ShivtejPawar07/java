@@ -1,3 +1,6 @@
+/* b) Define an abstract class Staff with protected members id and name. Define a
+parameterized constructor. Define one subclass OfficeStaff with member
+department. Create n objects of OfficeStaff and display all details.*/
 import java.util.*;
 class Staff{
   protected int id;
@@ -40,16 +43,10 @@ class demo{
   o[i]=new officestaff(id,name,dname);
   }
   System.out.println("info");
-  // System.out.println("id\tname\tdname");
   for(int i=0;i<n;i++)
   {
     o[i].display();
   }
-
-
-
-  //   officestaff obj=new  officestaff(1,"asd","sdds");
-  //  obj.display();
   }
 
 }

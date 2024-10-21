@@ -1,55 +1,60 @@
-/*  Write a program for multilevel inheritance such that country is inherited from
-continent. State is inherited from country. Display the place, state, country and
-continent.*/
-class continent{
-String cname;
-continent(String cname)
-{
-  this.cname=cname;
-}
-void show()
-{
-    System.out.println("continent name=>"+cname);
-}
+import java.util.*;
+class Continent {
+    String cname;
 
- }
- class country extends continent
- {
-    String name;
-    country(String name,String cname)
-    {
-       super(cname);
-        this.name=name;  
+    Continent(String cname) {
+        this.cname = cname;
     }
-    void show()
-{
-     System.out.println("continent name=>"+cname); 
-     System.out.println("continent name=>"+name);
-}
-     
-}
-class state extends country{
-  String sname;
-  String pname;
-  state(String sname,String pname,String name,String cname)
-  {
-     super(name,cname);
-      this.sname=sname;
-      this.pname=pname;    
-  }
-  void show()
-  {
-      super.show();
-      System.out.println("continent name=>"+sname); 
-      System.out.println("continent name=>"+pname);
 
-  }
-
+    void show() {
+        System.out.println("Continent name => " + cname);
+    }
 }
-class demo{
 
+class Country extends Continent {
+    String name;
+
+    Country(String name, String cname) {
+        super(cname);
+        this.name = name;
+    }
+
+    void show() {
+        super.show(); // Calling show() of Continent class
+        System.out.println("Country name => " + name);
+    }
+}
+
+class State extends Country {
+    String sname;
+    String pname;
+
+    State(String sname, String pname, String name, String cname) {
+        super(name, cname);
+        this.sname = sname;
+        this.pname = pname;
+    }
+
+    void show() {
+        super.show(); // Calling show() of Country class
+        System.out.println("State name => " + sname);
+        System.out.println("City name => " + pname);
+    }
+}
+
+class demo {
     public static void main(String[] args) {
-        state c=new state("asia","india","maharastra","pune");
-        c.show();
+        // State s = new State("Maharashtra", "Pune", "India", "Asia");
+        // s.show();
+        Scanner sc=new Scanner(System.in); 
+          System.out.println("enter constient country state place");       
+         String cname=sc.nextLine();
+         String name=sc.nextLine();
+         String sname=sc.nextLine();
+         String pname=sc.nextLine();
+         State s = new State(cname,name,sname,pname);
+         s.show();
+        
+        
     }
 }

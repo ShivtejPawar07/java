@@ -1,3 +1,6 @@
+/*a) Write a package for String operation which has two classes Con and Comp. Con class
+has to concatenates two strings and comp class compares two strings. Also display
+proper message on execution. */
 
 import st.*;
 // import st.Comp;
