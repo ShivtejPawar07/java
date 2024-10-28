@@ -11,6 +11,9 @@
         this.edesg=edesg;
         System.out.println("employee parameterised constructor");
     }
+    void display(){
+        System.out.println(eid+ename+salary+edesg);
+    }
 
 }
 class manager extends employee{
@@ -21,12 +24,17 @@ class manager extends employee{
        this.bonus=bonus; 
        System.out.println("manager parameterised constructor");     
     }
+    void display(){
+        super.display();
+        System.out.println(bonus);
+    }
 
 }
 class demo
 {
   public static void main(String args[])
   {
-     manager shiv=new manager(1,"shiv", 100, "tfg",100);
-  }
+     manager m=new manager(1,"shiv", 100, "tfg",100);
+     m.display();
+    }
 }
