@@ -27,8 +27,10 @@ class Cat extends Animal {
 
 class demo {
     public static void main(String[] args) {
-        Animal myDog = new Dog(); // Upcasting
-        Animal myCat = new Cat(); // Upcasting
+        // Animal myDog = new Dog(); // Upcasting
+        // Animal myCat = new Cat(); // Upcasting
+        Dog myDog = new Dog(); // Upcasting
+       Cat myCat = new Cat(); // Upcasting
 
         myDog.sound(); // Outputs: Dog barks
         myDog.eat();   // Outputs: Animal is eating

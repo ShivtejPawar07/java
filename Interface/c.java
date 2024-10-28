@@ -1,21 +1,21 @@
-class mobileuser {
-    public static void main(String[] args) {
-        sim jioSim = new jio();  // Create a jio sim object
-        mobile vivo = new mobile(jioSim);  // Pass the sim object to the mobile
-    }
-}
+// class mobileuser {
+//     public static void main(String[] args) {
+//         sim jioSim = new jio();  // Create a jio sim object
+//         mobile vivo = new mobile(jioSim);  // Pass the sim object to the mobile
+//     }
+// }
 
-class mobile {
-    // Constructor to accept a sim object
-    public mobile(sim s) {
-        insertsim(s);  // Pass the sim to the insertsim method
-    }
+// class mobile {
+//     // Constructor to accept a sim object
+//     public mobile(sim s) {
+//         insertsim(s);  // Pass the sim to the insertsim method
+//     }
 
-    void insertsim(sim s) {
-        s.calling();
-        s.sms();
-    }
-}
+//     void insertsim(sim s) {
+//         s.calling();
+//         s.sms();
+//     }
+// }
 
 interface sim {
     void calling();
@@ -49,5 +49,12 @@ class vi implements sim {
 
     public void sms() {
         System.out.println("VI is sending an SMS...");
+    }
+}
+class demo{
+    public static void main(String[] args) {
+        jio j=new jio();
+        j.calling();
+        j.sms();
     }
 }

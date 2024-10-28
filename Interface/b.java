@@ -7,20 +7,11 @@ interface demo  {
 
 }
 class test implements demo{
+public void fun(){}
+public void gun(){}
 
   
 }
 
 
 
-interface a{
-    
-}
-
-public interface b {
-
-    
-}
-class c implements a,b{
-
-}
