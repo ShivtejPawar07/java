@@ -1,11 +1,11 @@
-import java.io.*;
+//import java.io.*;
 class demo
 {
   
   public static void main(String[] args)
   {
     try{
-        Class.forName("sample");
+        Class.forName("demo");
     }
     catch(ClassNotFoundException cnf)
     {
