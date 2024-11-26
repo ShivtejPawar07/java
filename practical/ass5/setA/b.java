@@ -4,8 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 class DemoFrame1 extends JFrame implements MouseListener{
- JTextField textno1;
- static public void main(String args[])
+JTextField textno1;
+static public void main(String args[])
 {
    DemoFrame1 df=new DemoFrame1();
 }

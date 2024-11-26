@@ -17,7 +17,7 @@ class demo {
         System.out.println("3.Aramstrong");
         System.out.println("4Exit....");
         System.out.println("enter your choice");
-   ch=sc.nextInt();
+        ch=sc.nextInt();
         switch (ch) {
             case 1:volumeofcylinder();              
                 break;
@@ -36,7 +36,7 @@ class demo {
     }
  static void volumeofcylinder()
     {     
-        float pi=3.14f;
+         float pi=3.14f;
          Scanner sc=new Scanner(System.in);
          System.out.println("enter radius");
          float r=sc.nextFloat();

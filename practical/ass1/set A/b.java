@@ -11,6 +11,6 @@ class demo{
         float b=sc.nextFloat();
        System.out.println("area of rectangle="+l*b);
        System.out.println("perimeter of rectangle="+(2*(l+b)));
-        sc.close();
+        
     }
 }

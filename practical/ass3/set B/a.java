@@ -52,16 +52,19 @@ class Demo {
        
         PurchaseOrder[] p = new PurchaseOrder[3];
         for (int i = 0; i < 3; i++) {
-            p[i] = new PurchaseOrder();
+         //   p[i] = new PurchaseOrder();
             System.out.println("\nEntering details for Purchase Order " + (i + 1));
+            p[i] = new PurchaseOrder();
             p[i].accept();
         }
 
         SalesOrder[] s = new SalesOrder[3];
         for (int i = 0; i < 3; i++) {
-        s[i] = new SalesOrder();
-            System.out.println("\nEntering details for Sales Order " + (i + 1));
-            s[i].accept();
+       // s[i] = new SalesOrder();
+           
+        System.out.println("\nEntering details for Sales Order " + (i + 1));
+        s[i] = new SalesOrder();   
+        s[i].accept();
         }
 
         

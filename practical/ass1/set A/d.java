@@ -13,15 +13,15 @@ class demo{
         {
               a[i]=sc.nextInt();
         }
-        System.out.println("array");
+        System.out.println("array=");
         for(int i=0;i<n;i++)
         {
-            System.out.println(a[i]+" ");
+            System.out.print(a[i]+" ");
         }
-        System.out.println("reverse");
+        System.out.println("reverse=");
         for(int i=n-1;i>=0;i--)
         {
-            System.out.println(a[i]+" ");
+            System.out.print(a[i]+" ");
         }
     }
 }
