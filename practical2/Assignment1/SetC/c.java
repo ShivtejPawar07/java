@@ -3,26 +3,23 @@ import java.util.*;
 
 class Demo {
     public static void main(String[] args) {
-        if (args.length != 1) {
-            System.out.println("Usage: java SimpleFileEditor <filename>");
-            return;
-        }
+   
 
-        String filename = args[0];
-        List<String> lines = new ArrayList<>();
+        File f =new File(args[0]);
+        ArrayList<String> al = new ArrayList<>();
 
         // Load file content into a list
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            String ch;
+            while ((ch = br.readLine()) != null) {
+                al.add(ch);
             }
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
             return;
         }
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int choice;
 
         do {
@@ -33,59 +30,50 @@ class Demo {
             System.out.println("4. Modify line");
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();  // consume newline
+            choice = sc.nextInt();
+            sc.nextLine();  // consume newline
 
             switch (choice) {
                 case 1:
                     System.out.print("Enter line to insert: ");
-                    String lineToInsert = scanner.nextLine();
-                    System.out.print("Enter position: ");
-                    int insertPos = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
-                    if (insertPos >= 0 && insertPos <= lines.size()) {
-                        lines.add(insertPos, lineToInsert);
-                    } else {
-                        System.out.println("Invalid position.");
-                    }
-                    break;
+                    String line = sc.nextLine();
+                   al.add(line);
+                   System.out.print(al);
+                   break;
 
                 case 2:
                     System.out.print("Enter position to delete: ");
-                    int deletePos = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
-                    if (deletePos >= 0 && deletePos < lines.size()) {
-                        lines.remove(deletePos);
-                    } else {
-                        System.out.println("Invalid position.");
-                    }
+                    int pos = sc.nextInt();
+                     al.remove(pos);
                     break;
 
                 case 3:
                     System.out.print("Enter line to append: ");
-                    String lineToAppend = scanner.nextLine();
-                    lines.add(lineToAppend);
+                    String l = sc.nextLine();
+                    al.add(l);
                     break;
 
-                case 4:
+                    case 4:
                     System.out.print("Enter position to modify: ");
-                    int modifyPos = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
-                    if (modifyPos >= 0 && modifyPos < lines.size()) {
+                    int modifyPos = sc.nextInt();
+                    sc.nextLine(); // consume newline
+                    if (modifyPos >= 0 && modifyPos < al.size()) {
                         System.out.print("Enter new content: ");
-                        String newContent = scanner.nextLine();
-                        lines.set(modifyPos, newContent);
+                        String newContent = sc.nextLine();
+                        al.set(modifyPos, newContent); // Update the content at the specified position
                     } else {
                         System.out.println("Invalid position.");
                     }
                     break;
-
                 case 5:
-                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-                        for (String line : lines) {
-                            writer.write(line);
-                            writer.newLine();
+                    try{
+                        FileWriter fw=new FileWriter(f);
+                        for(int i=0;i<al.size();i++)
+                        {
+                                fw.write((String)al.get(i));
+                                fw.write("\n");
                         }
+                       fw.close();
                     } catch (IOException e) {
                         System.out.println("Error saving file: " + e.getMessage());
                     }
@@ -97,7 +85,7 @@ class Demo {
             }
         } while (choice != 5);
 
-        scanner.close();
+        sc.close();
     }
 }
 

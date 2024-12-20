@@ -3,70 +3,52 @@ import java.util.Scanner;
 
 class Demo {
     public static void main(String[] args) {
-        // Create LinkedList
-        LinkedList<Integer> list = new LinkedList<>();
-        
-        // Scanner for user input
+        LinkedList<Integer> list = new LinkedList<>(); // Create a LinkedList to store integer objects
         Scanner scanner = new Scanner(System.in);
-        
         int choice;
-        
+
         do {
-            // Displaying menu for user choice
+            // Menu options
             System.out.println("\nMenu:");
-            System.out.println("1. Add element at first position");
-            System.out.println("2. Add element at last position");
-            System.out.println("3. Remove last element");
-            System.out.println("4. Display size of LinkedList");
-            System.out.println("5. Exit");
-            
+            System.out.println("1. Add element at the first position");
+            System.out.println("2. Delete the last element");
+            System.out.println("3. Display the size of the LinkedList");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
-            
+
             switch (choice) {
                 case 1:
                     // Add element at the first position
-                    System.out.print("Enter element to add at first: ");
-                    int firstElement = scanner.nextInt();
-                    list.addFirst(firstElement);
-                    System.out.println("After adding at first: " + list);
+                    System.out.print("Enter an integer to add at the first position: ");
+                    int element = scanner.nextInt();
+                    list.addFirst(element); // Add the element to the beginning
+                    System.out.println("Element added at the first position.");
                     break;
 
                 case 2:
-                    // Add element at the last position
-                    System.out.print("Enter element to add at last: ");
-                    int lastElement = scanner.nextInt();
-                    list.add(lastElement);
-                    System.out.println("After adding at last: " + list);
+                    // Delete the last element
+                   
+                        int removedElement = list.removeLast(); // Remove the last element
+                        System.out.println("Deleted last element: " + removedElement);
+                   
                     break;
 
                 case 3:
-                    // Remove last element
-                    if (!list.isEmpty()) {
-                        list.removeLast();
-                        System.out.println("After removing last: " + list);
-                    } else {
-                        System.out.println("The list is empty, cannot remove last element.");
-                    }
+                    // Display the size of the LinkedList
+                    System.out.println("Size of the LinkedList: " + list.size());
                     break;
 
                 case 4:
-                    // Display size of the LinkedList
-                    System.out.println("Size: " + list.size());
-                    break;
-
-                case 5:
                     // Exit the program
                     System.out.println("Exiting program.");
                     break;
 
                 default:
-                    // Invalid option
-                    System.out.println("Invalid choice, please try again.");
-                    break;
+                    System.out.println("Invalid choice. Please try again.");
             }
-        } while (choice != 5);
-        
+        } while (choice != 4);
+
         scanner.close();
     }
 }
