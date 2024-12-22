@@ -1,131 +1,134 @@
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
 
-class Demo extends JFrame implements ActionListener {
+class Demo extends JFrame implements ActionListener 
+{
+   JLabel lbl1,lbl2;
+   JTextField txt1,txt2;
+   JButton btn1,btn2,btn3;
+   JTextArea area;
+   HashMap <String,String> hs=new HashMap<>();
+  Demo()
+  {
+    setSize(400,200);
+    setLayout(new FlowLayout());
+    setTitle("GUI");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
-    JLabel l1;
-    JTextField t1, t2, t3;
-    JButton b1, b2, b3;
-    JTextArea area;
-    HashMap<String, String> cityCodes;
+    lbl1=new JLabel("enter city");
+    add(lbl1);
+    txt1=new JTextField(10);
+    add(txt1);
+    
+    lbl2=new JLabel("enter STD");
+    add(lbl2);
+    txt2=new JTextField(10);
+    add(txt2);
+    
+    btn1=new JButton("addCity");
+     btn2=new JButton("removeCity");
+      btn3=new JButton("searchCity");
+      
+      add(btn1);
+      add(btn2);
+      add(btn3);
+      
+      btn1.addActionListener(this);
+      btn2.addActionListener(this);
+      btn3.addActionListener(this);
+      
+      area=new JTextArea(10,40);
+      
+      add(area);
+    
+    
+    
+    
+    setVisible(true);
+  
+  }
 
-    public static void main(String[] args) {
-        new Demo();
-    }
+ public void actionPerformed(ActionEvent ae)
+ { if(ae.getSource()==btn1)
+     {
+      addcity();
+     }
+   else if(ae.getSource()==btn2){
+      removecity();
+   }
+   else if(ae.getSource()==btn3)
+   {
+      search();
+   }
+     
+ 
+ }
+ 
+ void addcity()
+ {
+ String city=txt1.getText();
+ String code=txt2.getText();
+   if(!city.isEmpty() && !code.isEmpty())
+   {
+     if(!hs.containsKey(city))
+     {
+        hs.put(city,code);
+        JOptionPane.showMessageDialog(this,city+"-"+code+"added success");
+        area.append(city+"-"+code+"added success");
+     }else
+     {
+     JOptionPane.showMessageDialog(this,"you are adding duplicate city");
+      }
+   }else
+   {
+   JOptionPane.showMessageDialog(this,"please fill all information!!!");
+   }
+   
+   txt1.setText("");
+   txt2.setText("");
+ }
+ void removecity()
+ { String city=txt1.getText();
+   if(!city.isEmpty())
+   {
+       if(hs.containsKey(city))
+       {
+         hs.remove(city);
+        JOptionPane.showMessageDialog(this,city+"removed successfully");
+           area.append(city+"removed success");
+       }else{
+       JOptionPane.showMessageDialog(this,city+"does not exists");
+       }
+   }else
+   {
+   JOptionPane.showMessageDialog(this,"please fill all information!!!");
+   }
+   
+   txt1.setText("");
+        txt2.setText("");
+ }
+ 
+ void search()
+ {  
+ String city = txt1.getText();
 
-    // Constructor for setting up the frame
-    Demo() {
-        cityCodes = new HashMap<>();
-
-        // Set up frame
-        setTitle("City STD Code Manager");
-        setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel panel = new JPanel(new GridLayout(5, 2, 10, 10));
-       
-
-        panel.add(new JLabel("City Name:"));
-        t1 = new JTextField();
-        panel.add(t1);
-
-        panel.add(new JLabel("STD Code:"));
-        t2 = new JTextField();
-        panel.add(t2);
-
-        b1 = new JButton("Add City");
-        panel.add(b1);
-
-        b2 = new JButton("Remove City");
-        panel.add(b2);
-
-        panel.add(new JLabel("Search City:"));
-        t3 = new JTextField();
-        panel.add(t3);
-
-        b3 = new JButton("Search");
-        panel.add(b3);
-
-        area = new JTextArea(6, 30);
-        area.setEditable(false);
-
-        add(panel, BorderLayout.NORTH);
-        add(new JScrollPane(area), BorderLayout.CENTER);
-
-        // Button listeners
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-
-        // Display frame
-        setVisible(true);
-    }
-
-    // Action performed for button clicks
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == b1) {
-            addCity();
-        } else if (e.getSource() == b2) {
-            removeCity();
-        } else if (e.getSource() == b3) {
-            searchCity();
-        }
-    }
-
-    // Method to add city and STD code
-    private void addCity() {
-        String city = t1.getText().trim();
-        String code = t2.getText().trim();
-
-        if (!city.isEmpty() && !code.isEmpty()) {
-            if (!cityCodes.containsKey(city)) {
-                cityCodes.put(city, code);
-                area.append("Added: " + city + " -> " + code + "\n");
-            } else {
-                area.append("City already exists.\n");
-            }
+        if (hs.containsKey(city)) {
+            String code = hs.get(city);
+            JOptionPane.showMessageDialog(this, city + " STD Code: " + code+" city found");
         } else {
-            area.append("City name and code cannot be empty.\n");
+            JOptionPane.showMessageDialog(this, "City not found!");
         }
+        txt1.setText("");
+        txt2.setText("");
+ 
+ }
+ 
 
-        t1.setText("");
-        t2.setText("");
-    }
+public static void main(String[] args)
+{
+ new Demo();
+}
 
-    // Method to remove city
-    private void removeCity() {
-        String city = t1.getText().trim();
-
-        if (!city.isEmpty()) {
-            if (cityCodes.containsKey(city)) {
-                cityCodes.remove(city);
-                area.append("Removed: " + city + "\n");
-            } else {
-                area.append("City not found.\n");
-            }
-        } else {
-            area.append("Please enter a city name to remove.\n");
-        }
-
-        t1.setText("");
-    }
-
-    // Method to search and display city
-    private void searchCity() {
-        String city = t3.getText().trim();
-
-        if (!city.isEmpty()) {
-            if (cityCodes.containsKey(city)) {
-                area.append("Found: " + city + " -> " + cityCodes.get(city) + "\n");
-            } else {
-                area.append("City not found.\n");
-            }
-        } else {
-            area.append("Please enter a city name to search.\n");
-        }
-
-        t3.setText("");
-    }
 }

@@ -1,32 +1,20 @@
-import java.util.Scanner;
-import java.util.TreeSet;
-class demo
- {
-    public static void main(String[] args) {
-        // Create a TreeSet to store integers
-        TreeSet<Integer> integers = new TreeSet<>();
+import java.util.*;
+class Demo
+{
+  public static void main(String[] args)
+  {
+  Scanner sc=new Scanner(System.in);
+  System.out.println("enter how many numbers ");
+  int n=sc.nextInt();
+    TreeSet ts =new TreeSet();
+    System.out.println("enter "+(n)+"numbers");
+  for(int i=0;i<n;i++)
+  {
+   ts.add(sc.nextInt());
+  }
+  
+  System.out.println("elements "+ts);
+  
+  }
 
-        // Create a Scanner object for user input
-        Scanner scanner = new Scanner(System.in);
-
-        // Accept 'n' as the number of integers
-        System.out.print("Enter the number of integers you want to input: ");
-        int n = scanner.nextInt();
-
-        // Accept 'n' integers from the user
-        System.out.println("Enter " + n + " integers:");
-        for (int i = 0; i < n; i++) {
-            int input = scanner.nextInt();
-            boolean added = integers.add(input);
-            if (!added) {
-                System.out.println("Duplicate element " + input + " is ignored.");
-            }
-        }
-
-        // Display the integers in sorted order
-        System.out.println("Sorted integers (duplicates removed): " + integers);
-
-        // Close the scanner
-        scanner.close();
-    }
 }

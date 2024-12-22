@@ -1,3 +1,26 @@
+import java.util.*;
+class Demo{
+  static public void main(String[] args)
+  {
+    Scanner sc=new Scanner(System.in);
+    LinkedList<String> list=new LinkedList<>();
+    System.out.println("how many friend");
+    int n=sc.nextInt();
+    sc.nextLine();
+    for(int i=0;i<n;i++)
+    {
+        System.out.println("enter friend name");
+        String name=sc.nextLine();
+        list.add(name);
+    }
+    System.out.println("friend names"+list);
+    
+
+  }
+
+}
+
+/* 
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -32,4 +55,4 @@ import java.util.Scanner;
         scanner.close();
     }
 }
-
+*/
