@@ -1,6 +1,6 @@
-import java.util.*;
-import java.io.*;
-class Demo
+import java.util.*; 
+import java.io.*; 
+class Demo  
 {
   public static void main(String[] args)
   {  Scanner sc=new Scanner(System.in);
@@ -14,8 +14,8 @@ class Demo
       
       while((ch=bf.readLine())!=null)
       {
-         name=ch.substring(0,ch.indexOf("\t"));
-         mobile=ch.substring(ch.indexOf("\t"),ch.length());
+         name=ch.substring(0,ch.indexOf(" "));
+         mobile=ch.substring(ch.indexOf(" "),ch.length());
          
          hs.put(name,mobile);
          
