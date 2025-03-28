@@ -16,7 +16,7 @@ class PrintThread extends Thread {
     }
 }
 
-class a {
+class Demo {
     public static void main(String[] args) {
         // Creating threads with required text and count
         PrintThread t1 = new PrintThread("COVID19", 10);

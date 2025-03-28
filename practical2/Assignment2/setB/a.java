@@ -22,7 +22,7 @@ class SumCalculator extends Thread {
         return sum;
     }
 }
-class a {
+class Demo {
     public static void main(String[] args) {
         int[] numbers = new int[1000];
         Random rand = new Random();

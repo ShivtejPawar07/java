@@ -20,7 +20,7 @@ import java.awt.*;
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLUE);
+        g.setColor(Color.RED);
         g.fillOval(180, y, 30, 30);
     }
 

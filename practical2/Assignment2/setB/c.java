@@ -50,7 +50,7 @@ class CubeThread extends Thread {
     }
 }
 
- class MultiThreadApp {
+ class Demo {
     public static void main(String[] args) {
         NumberGenerator generator = new NumberGenerator();
         generator.start();

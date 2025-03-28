@@ -87,6 +87,6 @@ class Demo extends JFrame implements ActionListener, Runnable {
     }
 
     public static void main(String[] args) {
-        new b();
+        new Demo();
   }
 }
